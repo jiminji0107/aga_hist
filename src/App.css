@@ -1,58 +1,77 @@
-/* 전체 컨테이너 스타일 */
+/* 전역 스타일 (body 등) */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif; /* 기본 폰트(본문) */
+  background: linear-gradient(135deg, #edf2ee 0%, #cbd9ce 100%);
+  /* 옅은 녹색계열 그라데이션 예시 */
+}
+
+/* 전체 컨테이너 */
 .profiles-container {
   display: flex;
-  flex-direction: column; /* 상단 텍스트는 수직 정렬 */
-  align-items: center; /* 수평 중앙 정렬 */
-  gap: 20px; /* 상단 텍스트와 프로필 카드 간 간격 */
-  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px; /* 여백 강화 */
+  min-height: 100vh;  /* 화면 전체 채우기 */
+  box-sizing: border-box;
 }
 
-/* 프로필 카드 래퍼 */
-.profile-cards-wrapper {
-  display: flex; /* 수평 정렬 */
-  justify-content: center; /* 수평 중앙 정렬 */
-  gap: 40px; /* 프로필 카드 간 좌우 간격 */
-  flex-wrap: wrap; /* 화면 크기에 따라 줄바꿈 */
-  width: 100%; /* 부모 요소의 너비 */
-  max-width: 1200px; /* 전체 영역 너비 제한 */
-}
-
-/* 헤더 스타일 */
+/* 상단 헤더 글자 */
 .header {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-family: "Noto Serif KR", serif; /* 제목 폰트 */
+  font-size: 2.8rem;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
-/* 설명 텍스트 스타일 */
+/* 설명 텍스트 */
 .description {
-  text-align: center;
   font-size: 1.2rem;
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* 아래 요소와 간격 */
 }
 
-/* 프로필 카드 스타일 */
+/* 프로필 카드 감싸는 래퍼 */
+.profile-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* 실제 프로필 카드 스타일 */
 .profile-card {
-  background: white;
+  background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px; /* 카드 고정 너비 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 280px; /* 카드 너비 (조금 더 좁힘) */
   padding: 20px;
   text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .profile-image {
-  width: 100%;
-  height: auto;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #cbd9ce; /* 살짝 포인트 */
 }
 
 .profile-name {
-  font-size: 1.5rem;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.6rem;
   color: #333;
   margin-bottom: 10px;
 }
@@ -63,4 +82,29 @@
   color: #555;
   font-size: 0.9rem;
   line-height: 1.6;
+  text-align: left; /* 글은 왼쪽 정렬이 읽기 편함 */
+  margin: 0 auto;
+  max-width: 220px; /* 내용 폭 제한 */
+}
+
+.profile-details li + li {
+  margin-top: 5px; /* 항목 간 약간의 간격 */
+}
+
+/* 돌아가기 링크 */
+.App-link {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: #507c5c;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 24px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.App-link:hover {
+  background-color: #3d634a;
+  transform: translateY(-2px);
 }
